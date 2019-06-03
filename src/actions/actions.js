@@ -53,7 +53,7 @@ export function requestCreateStore(data){
             },
             data: store
         }).then(function(response){
-            dispatch(revecieData(types.REMOVE_STORE,response.data))
+            dispatch(revecieData(types.ADD_STORE,response.data))
         }).catch(function(error){
             console.log(error);
         })
@@ -78,7 +78,7 @@ export function requestUpdateStore(data){
             },
             data: store
         }).then(function(response){
-            dispatch(revecieData(types.REMOVE_STORE,response.data))
+            dispatch(revecieData(types.UPDATE_STORE,response.data))
         }).catch(function(error){
             console.log(error);
         })

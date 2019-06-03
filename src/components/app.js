@@ -4,6 +4,7 @@ import {SubcribeComponent, FormComponent} from './shared';
 import {connect} from 'react-redux';
 import * as action from '../actions/actions';
 import HomePage from './page/HomePage';
+import "antd/dist/antd.css";
 class app extends Component {
     constructor(props){
         super(props);
@@ -16,7 +17,6 @@ class app extends Component {
     onChangerView = () =>{
         this.setState({
             views: 'FORM'
-          
         })
     }
     componentDidMount(){
@@ -26,25 +26,23 @@ class app extends Component {
         this.props.dispatch(action.requestRemoveStore(id));
     }
     onAdd = (data) =>{
-        
         this.props.dispatch(action.requestCreateStore(data));
         this.setState({
             views: 'LIST',
-            edit: false
         })
     }
     onEdit = (id) =>{
-        let item = [...this.props.data].filter(item => item.id = id);
-        this.setState({
-            dataEdit: item[0],
-            edit: true,
-            views: 'FORM'
-        })
+        let item = [...this.props.data].filter(item => item.id === id);
+        if (item.length > 0) {
+            this.setState({dataEdit: item[0], views: 'FORM', edit: true})
+        }
     }
     onUpdate = (data)=>{
+        console.log(data);
+        
         this.props.dispatch(action.requestUpdateStore(data));
         this.setState({
-            views:'LIST'
+            views:'LIST',
         })
     }
     render() {
@@ -58,7 +56,7 @@ class app extends Component {
                     return(
                         <FormComponent edit={this.state.edit} onUpdate={this.onUpdate} dataEdit={this.state.dataEdit} onAdd={this.onAdd}></FormComponent>
                     )
-                    
+
                 default:
                     return(
                         <></>

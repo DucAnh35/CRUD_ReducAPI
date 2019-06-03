@@ -20,7 +20,7 @@ export default function store (state = INITIAL_STATE,action={}){
             })
         case types.UPDATE_STORE:
             return Object.assign({},state,{
-                all: state.all.map(data => data.id === action.payload.data.id ? action.payload.data : data)
+                all: state.all.map(data => data.id === action.payload.id ? action.payload : data)
             })
         default:
             return state;

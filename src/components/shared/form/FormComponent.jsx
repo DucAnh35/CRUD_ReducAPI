@@ -60,7 +60,7 @@ class FormComponent extends Component {
                         </div>
                         <div className="form-group">
                             <h5 className="title-form">Time:</h5>
-                            <input type="text" className="b-input" placeholder="Time" onChange={this.onChange} name="time" value={this.state.time}/>
+                            <input type="date" className="b-input" placeholder="Time" onChange={this.onChange} name="time" value={this.state.time}/>
                         </div>
                         <div className="form-group text-center">
                             <button type="submit" className="btn-submit  waves-effect waves-teal">SAVE</button>

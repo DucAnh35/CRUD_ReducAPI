@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-
+import {Modal} from 'antd';
+const confirm = Modal.confirm;
 class HomePage extends Component {
     onChangerView = () => {
         this
@@ -7,7 +8,16 @@ class HomePage extends Component {
             .onChangerView();
     }
     onDelete(id){
-        this.props.onDelete(id);
+        var self = this.props;
+        confirm({
+            title: "Bạn có muốn xóa?",
+            onOk(){
+                self.onDelete(id);
+            },
+            onCancel(){
+                console.log('cancel');
+            }
+        })
     }
     onEdit(id){
         this.props.onEdit(id);
