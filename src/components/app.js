@@ -26,7 +26,7 @@ class app extends Component {
         this.props.dispatch(action.requestRemoveStore(id));
     }
     onAdd = (data) =>{
-        window.location.reload();
+        
         this.props.dispatch(action.requestCreateStore(data));
         this.setState({
             views: 'LIST',
@@ -42,7 +42,6 @@ class app extends Component {
         })
     }
     onUpdate = (data)=>{
-        window.location.reload();
         this.props.dispatch(action.requestUpdateStore(data));
         this.setState({
             views:'LIST'
@@ -59,6 +58,7 @@ class app extends Component {
                     return(
                         <FormComponent edit={this.state.edit} onUpdate={this.onUpdate} dataEdit={this.state.dataEdit} onAdd={this.onAdd}></FormComponent>
                     )
+                    
                 default:
                     return(
                         <></>

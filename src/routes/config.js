@@ -7,10 +7,10 @@ export default [
         component: HomePage,
         key: 'home'
     },
-    // {
-    //     path: '/form',
-    //     exact: true,
-    //     component: FormComponent,
-    //     key: 'form'
-    // },
+    {
+        path: '/form',
+        exact: true,
+        component: FormComponent,
+        key: 'form'
+    },
 ]

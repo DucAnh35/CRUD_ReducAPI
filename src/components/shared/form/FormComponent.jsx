@@ -21,9 +21,20 @@ class FormComponent extends Component {
         event.preventDefault();
         if(this.props.edit){
             this.props.onUpdate(this.state);
+            this.onResest();
         }else{
             this.props.onAdd(this.state);
+            this.onResest();
         }
+    }
+    onResest(){
+        this.setState({
+            image: '',
+            category: '',
+            title: '',
+            description: '',
+            time: '',
+        })
     }
     render() {
         return (
@@ -52,7 +63,7 @@ class FormComponent extends Component {
                             <input type="text" className="b-input" placeholder="Time" onChange={this.onChange} name="time" value={this.state.time}/>
                         </div>
                         <div className="form-group text-center">
-                            <button type="submit" className="btn-submit  waves-effect waves-teal">{this.state.id ? 'UPDATE' : 'ADD'}</button>
+                            <button type="submit" className="btn-submit  waves-effect waves-teal">SAVE</button>
                         </div>
                     </form>
                 </div>
